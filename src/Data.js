@@ -4,6 +4,7 @@ import {scaleBand, scaleLinear, max, format} from "d3"
 import AxisBottom from "./AxisBottom"
 import { AxisLeft } from './AxisLeft'
 import Marks from "./Marks"
+import {Link} from "react-router-dom"
 
 let width = 960
 let height = 500
@@ -38,30 +39,37 @@ const yScale =scaleBand()
     
     .paddingInner(0.1)
     return (
-        <svg height={height} width={width}>
-          <g transform={`translate(${margin.left}, ${margin.top})`}>
-            <AxisBottom 
-                xScale={xScale} 
-                innerHeight={innerHeight}
-                tickFormat={format(".2s")}
+        <>
+            <svg height={height} width={width}>
+            <g transform={`translate(${margin.left}, ${margin.top})`}>
+                <AxisBottom 
+                    xScale={xScale} 
+                    innerHeight={innerHeight}
+                    tickFormat={format(".2s")}
+                    />
+                <AxisLeft yScale={yScale} xValue={xValue} yValue={yValue} />
+                <text 
+                    className="axisLabel"
+                    x={innerWidth/2} 
+                    y={innerHeight+xAxisOffset} 
+                    textAnchor="middle">
+                    Meat Congumed In Kg(Millions)
+                </text>
+                <Marks data={data} 
+                    xScale={xScale} 
+                    yScale={yScale} 
+                    xValue={xValue} 
+                    yValue={yValue}
+                    tickFormat={format(".2s")}
                 />
-            <AxisLeft yScale={yScale} xValue={xValue} yValue={yValue} />
-            <text 
-                className="axisLabel"
-                x={innerWidth/2} 
-                y={innerHeight+xAxisOffset} 
-                textAnchor="middle">
-                Meat Congumed In Kg(Millions)
-            </text>
-            <Marks data={data} 
-                xScale={xScale} 
-                yScale={yScale} 
-                xValue={xValue} 
-                yValue={yValue}
-                tickFormat={format(".2s")}
-            />
-          </g> 
-        </svg>
+            </g> 
+            </svg>
+            <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                <Link style={{textDecoration:"none"}} to="/scattered">
+                    Go to Scattered Plot of Iris Flower
+                </Link>
+            </button>
+        </>
     )
 }
 

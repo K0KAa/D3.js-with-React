@@ -6,6 +6,8 @@ import ScatteredMarks from './ScatteredMarks'
 import { extent, scaleLinear } from 'd3'
 import "./Axis.css"
 
+import {Link} from "react-router-dom"
+
 const width = 960
 const height = 500
 const margin ={
@@ -43,6 +45,7 @@ const ScatteredData = () => {
             .domain(extent(data,yValue)) //min to max
             .range([0,innerHeight])
     return (
+        <>
         <svg height={height} width={width}>
             <g transform={`translate(${margin.left}, ${margin.top})`} >
                 <ScatteredAxisBottom 
@@ -76,6 +79,12 @@ const ScatteredData = () => {
                 />
             </g>
         </svg>
+        <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                <Link style={{textDecoration:"none"}} to="/">
+                    Go to Bar Chart of Meat Consumed in Nepal
+                </Link>
+            </button>
+        </>
     )
 }
 
