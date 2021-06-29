@@ -7,9 +7,9 @@ import Marks from "./Marks"
 import {Link} from "react-router-dom"
 
 let width = 960
-let height = 500
+let height = 450
 const margin ={
-    top:20,
+    top:0,
     right:30,
     bottom:60,
     left:100
@@ -40,35 +40,46 @@ const yScale =scaleBand()
     .paddingInner(0.1)
     return (
         <>
+            <Link to="/"> 
+                <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>Go back Home</button>
+            </Link>
+            <h1>Meat Consumed in Nepal(Kg in Millions) Over The years of Time</h1>
             <svg height={height} width={width}>
-            <g transform={`translate(${margin.left}, ${margin.top})`}>
-                <AxisBottom 
-                    xScale={xScale} 
-                    innerHeight={innerHeight}
-                    tickFormat={format(".2s")}
+                <g transform={`translate(${margin.left}, ${margin.top})`}>
+                    <AxisBottom 
+                        xScale={xScale} 
+                        innerHeight={innerHeight}
+                        tickFormat={format(".2s")}
+                        />
+                    <AxisLeft yScale={yScale} xValue={xValue} yValue={yValue} />
+                    <text 
+                        className="axisLabel"
+                        x={innerWidth/2} 
+                        y={innerHeight+xAxisOffset} 
+                        textAnchor="middle">
+                        Meat Congumed In Kg(Millions)
+                    </text>
+                    <Marks data={data} 
+                        xScale={xScale} 
+                        yScale={yScale} 
+                        xValue={xValue} 
+                        yValue={yValue}
+                        tickFormat={format(".2s")}
                     />
-                <AxisLeft yScale={yScale} xValue={xValue} yValue={yValue} />
-                <text 
-                    className="axisLabel"
-                    x={innerWidth/2} 
-                    y={innerHeight+xAxisOffset} 
-                    textAnchor="middle">
-                    Meat Congumed In Kg(Millions)
-                </text>
-                <Marks data={data} 
-                    xScale={xScale} 
-                    yScale={yScale} 
-                    xValue={xValue} 
-                    yValue={yValue}
-                    tickFormat={format(".2s")}
-                />
-            </g> 
+                </g> 
             </svg>
-            <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+            <div>
                 <Link style={{textDecoration:"none"}} to="/scattered">
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
                     Go to Scattered Plot of Iris Flower
+                    </button>
                 </Link>
-            </button>
+                <Link style={{textDecoration:"none"}} to="/linedata">
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                        Go to Line Graph of Temperature this Week
+                    </button>
+                </Link>
+            </div>
         </>
     )
 }

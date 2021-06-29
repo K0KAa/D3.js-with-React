@@ -9,7 +9,7 @@ import "./Axis.css"
 import {Link} from "react-router-dom"
 
 const width = 960
-const height = 500
+const height = 450
 const margin ={
     top:30,
     bottom:80,
@@ -29,10 +29,10 @@ const ScatteredData = () => {
     const xAxisLabelOffet = 50
     const yAxisLabelOffset =35
 
-    const xValue =d=>d.petal_length
-    const xAxisLabel ='Petal Length'
+    const xValue =d=>d.sepal_length
+    const xAxisLabel ='Sepal Length'
 
-    const yValue =d=>d.sepal_width
+    const yValue =d=>d.petal_width
     const yAxisLabel ='Sepal Width'
 
 
@@ -46,6 +46,10 @@ const ScatteredData = () => {
             .range([0,innerHeight])
     return (
         <>
+        <Link to="/"> 
+                <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>Go back Home</button>
+        </Link>
+        <h1>Comapring Same Species of two Iris Flower</h1>
         <svg height={height} width={width}>
             <g transform={`translate(${margin.left}, ${margin.top})`} >
                 <ScatteredAxisBottom 
@@ -79,11 +83,18 @@ const ScatteredData = () => {
                 />
             </g>
         </svg>
-        <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                <Link style={{textDecoration:"none"}} to="/">
-                    Go to Bar Chart of Meat Consumed in Nepal
+            <div>
+                <Link style={{textDecoration:"none"}} to="/barchart">
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                        Go to Bar Chart of Meat Consumed in Nepal
+                    </button>
                 </Link>
-            </button>
+                <Link style={{textDecoration:"none"}} to="/linedata">
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                        Go to Line Graph of Temperature this Week
+                    </button>
+                </Link>
+            </div>
         </>
     )
 }

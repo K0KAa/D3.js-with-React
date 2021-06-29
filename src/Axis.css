@@ -10,6 +10,18 @@
     fill: #137B80
 }
 
+.marks circle{
+    fill: #137180
+}
+
+.marks path{
+    
+    stroke: #137B80;
+    stroke-width: 4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
 .axisLabel{
     font-size: 2em;
     fill: #7C715E
