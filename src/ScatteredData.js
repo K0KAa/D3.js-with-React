@@ -89,7 +89,7 @@ const ScatteredData = () => {
                         Go to Bar Chart of Meat Consumed in Nepal
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none",  width:"5rem"}} to="/linedata">
+                <Link style={{textDecoration:"none"}} to="/linedata">
                     <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
                         Go to Line Graph of Temperature this Week
                     </button>
