@@ -14,5 +14,7 @@ code {
 }
 
 button{
-  cursor:pointer
+  cursor:pointer;
+  border:none;
+  margin-left:"3px"
 }

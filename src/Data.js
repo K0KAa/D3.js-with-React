@@ -68,7 +68,7 @@ const yScale =scaleBand()
                     />
                 </g> 
             </svg>
-            <div>
+            <div style={{display:"flex", justifyContent:"space-around"}}>
                 <Link style={{textDecoration:"none"}} to="/scattered">
                     <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
                     Go to Scattered Plot of Iris Flower
