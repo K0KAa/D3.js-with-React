@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
-        <div className="home" style={{display:"flex",flexDirection:"column"}}>
+        <div style={{display:"flex",flexDirection:"column"}}>
             <h1>WelCome to new Data Visualization Site of 2021</h1>
             <h4>We Provide You the Best Visualization</h4>
             <p style={{fontSize:"1.5rem"}}>Enjoy!!</p>

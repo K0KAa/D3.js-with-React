@@ -5,6 +5,7 @@ import AxisLeft from './AxisLeft'
 import Marks from './Marks'
 import { Link } from 'react-router-dom'
 import { scaleLinear, scaleTime, extent,timeFormat } from 'd3'
+import "../Axis.css"
 const width = 960
 const height = 450
 const margin ={
@@ -42,7 +43,7 @@ console.log( xScale.ticks())
     return (
         <>
          <Link to="/"> 
-                <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>Go back Home</button>
+                <button className="linkHome">Go back Home</button>
         </Link>
         <h1>This Week's Temperature Vs Time</h1>
         <svg height={height} width={width}>
@@ -81,12 +82,12 @@ console.log( xScale.ticks())
         </svg>
         <div>
         <Link style={{textDecoration:"none"}} to="/barchart">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                    <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>
                         Go to Bar Chart of Meat Consumed in Nepal
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none"}} to="/scattered">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                <Link className="linkButton">
+                    <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>
                         Go to Scattered Plot of Iris Flower
                     </button>
                 </Link>

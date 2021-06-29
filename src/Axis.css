@@ -26,3 +26,16 @@
     font-size: 2em;
     fill: #7C715E
 }
+
+.linkButton{
+    background: "lightblue";
+    border-radius:"6px";
+     height:"2rem";
+     width:"4rem"
+}
+
+.linkHome{
+    background: "lightgrey";
+    border-radius:"6px";
+     height:"2rem"
+}

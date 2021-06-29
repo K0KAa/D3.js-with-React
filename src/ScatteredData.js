@@ -85,12 +85,12 @@ const ScatteredData = () => {
         </svg>
             <div>
                 <Link style={{textDecoration:"none"}} to="/barchart">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem", width: "4rem" }}>
                         Go to Bar Chart of Meat Consumed in Nepal
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none"}} to="/linedata">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
+                <Link style={{textDecoration:"none",  width:"5rem"}} to="/linedata">
+                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem",width: "4rem" }}>
                         Go to Line Graph of Temperature this Week
                     </button>
                 </Link>
