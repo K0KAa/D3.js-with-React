@@ -4,7 +4,7 @@ import useData from './useData'
 import { Link } from 'react-router-dom'
 
 const width =960
-const height =500
+const height =530
 const WorldMapData = () => {
     const data =useData()
     if(!data){
@@ -12,7 +12,7 @@ const WorldMapData = () => {
     }
     return (
         <>
-            <svg height = {height} width = {width}>
+            <svg style={{marginTop: "5px"}} height = {height} width = {width}>
                 <Marks data={data}/>
             </svg>
             <div className="linkWrapper">
