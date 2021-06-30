@@ -1,5 +1,6 @@
 import React from 'react'
 import { curveNatural, line } from 'd3'
+import "../Axis.css"
 const Marks = ({xScale,yScale,xValue,yValue,data,radius}) => (
     <g className="marks">
         <path fill ="none" d={line()
