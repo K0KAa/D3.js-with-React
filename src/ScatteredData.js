@@ -83,7 +83,7 @@ const ScatteredData = () => {
                 />
             </g>
         </svg>
-            <div style={{display:"flex", justifyContent:"space-around"}}>
+            <div className="linkWrapper">
                 <Link className="link" to="/barchart">
                     <button className="btn">
                         Bar Chart of Meat Consumed in Nepal

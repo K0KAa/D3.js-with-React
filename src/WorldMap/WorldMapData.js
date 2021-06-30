@@ -15,7 +15,8 @@ const WorldMapData = () => {
             <svg height = {height} width = {width}>
                 <Marks data={data}/>
             </svg>
-            <Link className="link" to="/scattered">
+            <div className="linkWrapper">
+                <Link className="link" to="/scattered">
                     <button className="btn">
                         Scattered Plot of Iris Flower
                     </button>
@@ -30,6 +31,7 @@ const WorldMapData = () => {
                         Bar Chart of Meat Consumed in Nepal                            
                     </button>
                 </Link>
+            </div>
         </>
     )
 }

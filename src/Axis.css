@@ -11,6 +11,11 @@
     margin-left: 2px;
 }
 
+.linkWrapper{
+    display:flex;
+    justify-content:space-around;
+}
+
 .axis line{
     stroke: #7C715E
 }
