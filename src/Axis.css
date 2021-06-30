@@ -35,6 +35,7 @@
 
 
 .marks path{
+    fill: #137180;
     stroke: "#C0C0BB";
     stroke-width: 4;
     stroke-linejoin: round;
