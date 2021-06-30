@@ -69,14 +69,19 @@ const yScale =scaleBand()
                 </g> 
             </svg>
             <div style={{display:"flex", justifyContent:"space-around"}}>
-                <Link style={{textDecoration:"none"}} to="/scattered">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                    Go to Scattered Plot of Iris Flower
+                <Link className="link" to="/scattered">
+                    <button className="btn">
+                        Scattered Plot of Iris Flower
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none"}} to="/linedata">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                        Go to Line Graph of Temperature this Week
+                <Link className="link" to="/linedata">
+                    <button className="btn">
+                        Line Graph of Temperature this Week
+                    </button>
+                </Link>
+                <Link className="link" to="/worlddata">
+                    <button className="btn">
+                       View the Beautiful World Map
                     </button>
                 </Link>
             </div>

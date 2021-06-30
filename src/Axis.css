@@ -1,3 +1,16 @@
+
+.btn{
+    background: lightblue;
+    border-radius:6px;
+    height:2rem
+}
+
+.link{
+    text-decoration:none;
+    margin-bottom:1rem;
+    margin-left: 2px;
+}
+
 .axis line{
     stroke: #7C715E
 }
@@ -14,9 +27,10 @@
     fill: #137180
 }
 
+
+
 .marks path{
-    
-    stroke: #137B80;
+    stroke: "#C0C0BB";
     stroke-width: 4;
     stroke-linejoin: round;
     stroke-linecap: round;

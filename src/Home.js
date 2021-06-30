@@ -8,19 +8,24 @@ const Home = () => {
             <h4>We Provide You the Best Visualization</h4>
             <p style={{fontSize:"1.5rem"}}>Enjoy!!</p>
             <div style={{display:"flex",flexDirection:"column"}}>
-                <Link style={{textDecoration:"none", marginBottom:"1rem"}} to="/scattered">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                    Go to Scattered Plot of Iris Flower
+                <Link className="link" to="/worlddata">
+                    <button className="btn">
+                        Enjoy the beautiful World Map
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none",marginBottom:"1rem"}} to="/barchart">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                        Go to Bar Chart of Meat Consumed in Nepal
+                <Link className="link" to="/scattered">
+                    <button className="btn">
+                        Analyse Scattered Plot of Iris Flower
                     </button>
                 </Link>
-                <Link style={{textDecoration:"none"}} to="/linedata">
-                    <button style={{background: "lightblue",borderRadius:"6px", height:"2rem" }}>
-                        Go to Line Graph of Temperature this Week
+                <Link className="link" to="/linedata">
+                    <button className="btn">
+                        View Line Graph of Temperature this Week
+                    </button>
+                </Link>
+                <Link className="link" to="/barchart">
+                    <button className="btn">
+                        Get Amazed by Bar Chart of Meat Consumed in Nepal
                     </button>
                 </Link>
             </div>
