@@ -12,10 +12,7 @@ const WorldMapData = () => {
     }
     return (
         <>
-            <Link to="/"> 
-                    <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>Go back Home</button>
-            </Link>
-            <svg style={{marginTop: "5px"}} height = {height} width = {width}>
+            <svg height = {height} width = {width}>
                 <Marks data={data}/>
             </svg>
             <div className="linkWrapper">

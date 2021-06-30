@@ -44,6 +44,7 @@ const ScatteredData = () => {
     const yScale =scaleLinear()
             .domain(extent(data,yValue)) //min to max
             .range([0,innerHeight])
+            .nice()
     return (
         <>
         <Link to="/"> 
