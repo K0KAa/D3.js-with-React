@@ -5,7 +5,7 @@ import AxisLeft from './AxisLeft'
 import Marks from './Marks'
 import { Link } from 'react-router-dom'
 import { scaleLinear, scaleTime, extent,timeFormat } from 'd3'
-import "../Axis.css"
+
 const width = 960
 const height = 450
 const margin ={

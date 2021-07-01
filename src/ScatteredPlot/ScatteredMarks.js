@@ -1,15 +1,14 @@
 import React from 'react'
-import "./Axis.css"
 
-const ScatteredMarks = ({data,xScale,yScale,yValue,xValue,circleRadius}) => (
+const ScatteredMarks = ({data,xScale,yScale,yValue,xValue,colorScale,colorValue,circleRadius}) => (
     data.map(d=>(
         <circle 
-        className="marks"
+        fill={colorScale(colorValue(d))}
             cx={xScale(xValue(d))}
             cy={yScale(yValue(d))}
             r= {circleRadius}
         >
-            <title>{xValue(d)}</title>
+            <title>{xValue(d)}cm</title>
         </circle>
     ))
 )

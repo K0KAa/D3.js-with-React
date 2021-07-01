@@ -1,5 +1,4 @@
 import React from 'react'
-import "./Axis.css"
 
 const ScatteredAxisBottom = ({xScale,innerHeight, tickOffset=3}) => (
     xScale.ticks().map(tickValue=>(

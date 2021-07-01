@@ -3,9 +3,10 @@ import useScatteredData from './useScatteredData'
 import ScatteredAxisBottom from './ScatteredAxisBottom'
 import ScatteredAxisLeft from './ScatteredAxisLeft'
 import ScatteredMarks from './ScatteredMarks'
-import { extent, scaleLinear } from 'd3'
-import "./Axis.css"
-
+import { extent, scaleLinear, scaleOrdinal } from 'd3'
+import WholeOptions from './WholeOptions'
+import ColorLegend from './ColorLegend'
+import "../Axis.css"
 import {Link} from "react-router-dom"
 
 const width = 960
@@ -14,29 +15,50 @@ const margin ={
     top:30,
     bottom:80,
     left:80,
-    right:30
+    right:200
 }
 const ScatteredData = () => {
     const data = useScatteredData()
 
+    const initialXAttribute = "petal_length"
+    const [xAttribute, setXAttribute] =React.useState(initialXAttribute)
+    
+    const initialYAttribute = "sepal_width"
+    const [yAttribute, setYAttribute] =React.useState(initialYAttribute)
+
+    const attributes =[
+        {value:"sepal_length", label:"Sepal Length"},
+        {value:"sepal_width", label:"Sepal Width"},
+        {value:"petal_length", label:"Petal Length"},
+        {value:"petal_width", label:"Petal Width"},
+        {value:"species", label:"species"},
+    ]
+
+    const getLabel =value => {
+        for(let i=0; i<attributes.length; i++){
+            if(attributes[i].value === value){
+                return attributes[i].label
+            }
+        }
+    }
     if(!data){
         return <pre>Loading...</pre>
     }
-
+    console.log(data[0])
+    
     const innerHeight = height -margin.top - margin.bottom
     const innerWidth =width-margin.left-margin.right
 
     const xAxisLabelOffet = 50
     const yAxisLabelOffset =35
 
-    const xValue =d=>d.sepal_length
-    const xAxisLabel ='Sepal Length'
+    const xValue =d=>d[xAttribute]
+    const xAxisLabel =getLabel(xAttribute)
 
-    const yValue =d=>d.petal_width
-    const yAxisLabel ='Sepal Width'
+    const yValue =d=>d[yAttribute]
+    const yAxisLabel =getLabel(yAttribute)
 
-
-
+    const colorValue =d=>d.species
     const xScale =scaleLinear()
             .domain(extent(data,xValue)) //min to max
             .range([0,innerWidth])
@@ -45,12 +67,39 @@ const ScatteredData = () => {
             .domain(extent(data,yValue)) //min to max
             .range([0,innerHeight])
             .nice()
+    const colorScale = scaleOrdinal() //takes input of some domain and returns value in some range
+            .domain(data.map(colorValue))
+            .range(["#E6842A", "#137B80", "#BE6CBA"])
+
+    const circleRadius = 7
+    const colorLegendLabel ="Species"
     return (
         <>
         <Link to="/"> 
                 <button style={{background: "lightgrey",borderRadius:"6px", height:"2rem" }}>Go back Home</button>
         </Link>
-        <h1>Comapring Same Species of two Iris Flower</h1>
+        {/* Heading */}
+        <h2 style={{marginBottom:"0"}}>Comapring Same Species of Three Iris Flowers</h2>
+
+        <div style={{display:"flex", justifyContent:"space-evenly"}}>
+        {/* Options for X axis */}
+            <WholeOptions
+                        label="X"
+                        id="x-select" 
+                        options={attributes}
+                        selectedValue={xAttribute}
+                        onSelectedValueChange={setXAttribute} />
+        
+        {/* Options for Y axis */}
+            <WholeOptions
+                        label="Y"
+                        id="y-select"
+                        options={attributes}
+                        selectedValue={yAttribute}
+                        onSelectedValueChange={setYAttribute}
+            />
+         </div>
+        {/* SVG part */}
         <svg height={height} width={width}>
             <g transform={`translate(${margin.left}, ${margin.top})`} >
                 <ScatteredAxisBottom 
@@ -74,14 +123,26 @@ const ScatteredData = () => {
                     y={innerHeight+xAxisLabelOffet} 
                     textAnchor="middle"
                 >{xAxisLabel}</text>
+                
                 <ScatteredMarks 
                     data={data} 
                     xScale={xScale}
                     yScale={yScale}
                     xValue={xValue}
                     yValue={yValue}
-                    circleRadius={8}
+                    colorScale={colorScale}
+                    colorValue={colorValue}
+                    circleRadius={circleRadius}
                 />
+                <g transform={`translate(${innerWidth + 60},60)`}>
+                <text 
+                    x={40}
+                    y={-25}
+                    className="axisLabel" 
+                    textAnchor="middle"
+                >{colorLegendLabel}</text>
+                    <ColorLegend circleRadius={circleRadius} colorScale={colorScale}/>
+                </g>
             </g>
         </svg>
             <div className="linkWrapper">
